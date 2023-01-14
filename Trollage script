@@ -1,0 +1,114 @@
+_G.autofarm = true;
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+
+local Window = OrionLib:MakeWindow({Name = "trollage-by jude/rev", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+local Tab = Window:MakeTab({
+	Name = "AutoFarm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "AutoFarm chests",
+	Default = (bool),
+	Callback = function(bool)
+		_G.autofarm = bool
+		print(bool)
+		if bool then
+		autofarm()
+		end
+	end    
+})
+
+
+Tab:AddButton({
+	Name = "Tp and open chest once",
+	Callback = function()
+      		print("button pressed")
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").chests["Chest_p"].CFrame
+      		wait()
+      		function fireproximityprompt(ProximityPrompt, Amount, Skip)
+    assert(ProximityPrompt, "Argument #1 Missing or nil")
+    assert(typeof(ProximityPrompt) == "Instance" and ProximityPrompt:IsA("ProximityPrompt"), "Attempted to fire a Value that is not a ProximityPrompt")
+
+    local HoldDuration = ProximityPrompt.HoldDuration
+    if Skip then
+        ProximityPrompt.HoldDuration = 0
+    end
+
+    for i = 1, Amount or 1 do
+        ProximityPrompt:InputHoldBegin()
+        if Skip then
+            local RunService = game:GetService("RunService")
+            local Start = time()
+            repeat
+                RunService.Heartbeat:Wait(0.1)
+            until time() - Start > HoldDuration
+        end
+        ProximityPrompt:InputHoldEnd()
+    end
+    ProximityPrompt.HoldDuration = HoldDuration
+end
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+
+  	end    
+})
+
+
+function autofarm()
+    while _G.autofarm == true do
+        game.Workspace.Gravity = 0
+              		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").chests["Chest_p"].CFrame
+      		wait()
+      		function fireproximityprompt(ProximityPrompt, Amount, Skip)
+    assert(ProximityPrompt, "Argument #1 Missing or nil")
+    assert(typeof(ProximityPrompt) == "Instance" and ProximityPrompt:IsA("ProximityPrompt"), "Attempted to fire a Value that is not a ProximityPrompt")
+
+    local HoldDuration = ProximityPrompt.HoldDuration
+    if Skip then
+        ProximityPrompt.HoldDuration = 0
+    end
+
+    for i = 1, Amount or 1 do
+        ProximityPrompt:InputHoldBegin()
+        if Skip then
+            local RunService = game:GetService("RunService")
+            local Start = time()
+            repeat
+                RunService.Heartbeat:Wait(0.1)
+            until time() - Start > HoldDuration
+        end
+        ProximityPrompt:InputHoldEnd()
+    end
+    ProximityPrompt.HoldDuration = HoldDuration
+end
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+wait()
+fireproximityprompt(game:GetService("Workspace").chests["Chest_p"].ProximityPrompt,1,true)
+game.Workspace.Gravity = 196.2
+
+end
+end
